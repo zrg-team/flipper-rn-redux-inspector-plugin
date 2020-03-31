@@ -30,7 +30,13 @@ const ActionsConatiner = styled.div({
 
 const CurrentStateContainer = styled.div({
   width: '100%',
-  height: 200
+  height: 200,
+  paddingTop: 5,
+  paddingBottom: 5,
+  paddingLeft: 10,
+  paddingRight: 10,
+  overflow: 'scroll',
+  backgroundColor: 'rgb(246, 247, 249)'
 })
 
 class FlipperReduxInspectorPlugin extends FlipperPlugin {
@@ -53,9 +59,6 @@ class FlipperReduxInspectorPlugin extends FlipperPlugin {
   ) {
     try {
       let currentState = persistedState.currentState || {}
-      console.log('persistedState', persistedState)
-      console.log('method', method)
-      console.log('method', data)
       switch (method) {
         case 'action': {
           let lastPersistedActions = persistedState.actions
@@ -141,8 +144,12 @@ class FlipperReduxInspectorPlugin extends FlipperPlugin {
           filterValue: row.timeStamp
         },
         actionType: {
-          value: <Text>🚀 {row.actionType} 🚀</Text>,
+          value: <Text>🚀 {row.actionType}</Text>,
           filterValue: row.actionType
+        },
+        time: {
+          value: <Text>⏳ {row.time || '0s'}</Text>,
+          filterValue: row.time
         }
       },
       key: row.uniqueId,
@@ -152,8 +159,6 @@ class FlipperReduxInspectorPlugin extends FlipperPlugin {
   }
 
   render () {
-    console.log('this.props', this.props)
-    console.log('this.state', this.state)
     const { persistedState = {} } = this.props
     const { actions = [], currentState = {} } = persistedState
     const rows = actions.map(this.buildRow)
@@ -161,6 +166,9 @@ class FlipperReduxInspectorPlugin extends FlipperPlugin {
     return (
       <FlexColumn grow>
         <MainContainer>
+          <Text style={{ fontSize: 17, padding: 5, paddingLeft: 10, paddingRight: 10, fontWeight: 'bold' }}>
+            🏷️ Actions
+          </Text>
           <ActionsConatiner>
             <SearchableTable
               key={this.id}
@@ -181,11 +189,14 @@ class FlipperReduxInspectorPlugin extends FlipperPlugin {
               )}
             />
           </ActionsConatiner>
+          <Text style={{ fontSize: 17, padding: 5, paddingLeft: 10, paddingRight: 10, fontWeight: 'bold' }}>
+            📖 State
+          </Text>
           <CurrentStateContainer>
             {
-              typeof payload !== 'object'
+              typeof currentState !== 'object'
                 ? <DataDescription type={typeof payload} value={currentState} />
-                : <ManagedDataInspector data={currentState} expandRoot />
+                : <ManagedDataInspector data={currentState} />
             }
           </CurrentStateContainer>
         </MainContainer>

@@ -1,5 +1,5 @@
 export const COLUMN_SIZE = {
-  timeStamp: 100,
+  timeStamp: 140,
   actionType: 'flex'
 }
 
@@ -9,7 +9,10 @@ export const COLUMNS = {
   },
   actionType: {
     value: 'Action Type'
+  },
+  time: {
+    value: 'Execution time'
   }
 }
 
-export const HELP_URL = 'https://github.com/zrg-team/flipper-rn-redux-inspector-plugin'
+export const HELP_URL = 'https://github.com/zrg-team/flipper-rn-redux-inspector-plugin/blob/master/README.md'

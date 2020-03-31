@@ -1,6 +1,6 @@
 {
   "name": "flipper-plugin-rn-redux-inspector",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "A Redux Inspector for flipper suppored react-native.",
   "main": "index.js",
   "keywords": [
