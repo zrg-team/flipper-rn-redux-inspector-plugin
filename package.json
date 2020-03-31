@@ -1,12 +1,22 @@
 {
-  "name": "flipper-rn-redux-inspector-plugin",
-  "version": "0.0.1",
-  "description": "Redux Inspector for flipper suppored react-native.",
+  "name": "flipper-plugin-rn-redux-inspector",
+  "version": "0.1.0",
+  "description": "A Redux Inspector for flipper suppored react-native.",
   "main": "index.js",
-  "keywords": ["flipper-plugin"],
+  "keywords": [
+    "flipper-plugin",
+    "react-native",
+    "redux"
+  ],
+  "icon": "apps",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "title": "RN Redux Inspector",
+  "category": "Redux",
+  "dependencies": {
+    "flipper": "latest"
+  },
   "author": "zrg-team",
-  "license": "ISC"
+  "license": "MIT"
 }
