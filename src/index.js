@@ -184,7 +184,7 @@ class FlipperReduxInspectorPlugin extends FlipperPlugin {
               actions={(
                 <>
                   <Button onClick={this.handleClear}>🗑️ Clear</Button>
-                  <Button onClick={this.handleHelp}>⛑️ Integrate with your app</Button>
+                  <Button onClick={this.handleHelp}>⛑️ Integration guide</Button>
                 </>
               )}
             />
