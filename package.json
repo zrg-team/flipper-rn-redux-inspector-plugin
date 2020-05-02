@@ -1,8 +1,11 @@
 {
+  "$schema": "https://fbflipper.com/schemas/plugin-package/v2.json",
   "name": "flipper-plugin-rn-redux-inspector",
+  "id": "flipper-plugin-rn-redux-inspector",
   "version": "0.1.5",
   "description": "A Redux Inspector for flipper suppored react-native.",
-  "main": "index.js",
+  "main": "dist/bundle.js",
+  "flipperBundlerEntry": "index.js",
   "keywords": [
     "flipper-plugin",
     "react-native",
@@ -10,12 +13,17 @@
   ],
   "icon": "apps",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepack": "flipper-pkg lint && flipper-pkg bundle"
   },
   "title": "RN Redux Inspector",
   "category": "Redux",
-  "dependencies": {
+  "peerDependencies": {
     "flipper": "latest"
+  },
+  "devDependencies": {
+    "flipper": "latest",
+    "flipper-pkg": "latest"
   },
   "author": "zrg-team",
   "license": "MIT"
